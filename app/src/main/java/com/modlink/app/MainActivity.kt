@@ -51,15 +51,45 @@ class MainActivity : Activity() {
         scroll.addView(column)
         setContentView(scroll)
 
-        val brand = TextView(this).apply {
-            text = "MODLINK"
-            textSize = 30f
-            setTextColor(red)
+        val logo = TextView(this).apply {
+            text = "BML"
+            textSize = 27f
+            setTextColor(Color.BLACK)
             gravity = Gravity.CENTER
-            letterSpacing = 0.16f
-            typeface = android.graphics.Typeface.DEFAULT_BOLD
+            typeface = android.graphics.Typeface.create(
+                "sans-serif-black",
+                android.graphics.Typeface.BOLD
+            )
+            background = android.graphics.drawable.GradientDrawable().apply {
+                shape = android.graphics.drawable.GradientDrawable.OVAL
+                setColor(Color.WHITE)
+                setStroke(dp(3), red)
+            }
         }
-        column.addView(brand, matchWrap())
+        val logoParams = LinearLayout.LayoutParams(dp(86), dp(86))
+        logoParams.gravity = Gravity.CENTER
+        column.addView(logo, logoParams)
+
+        val brand = TextView(this).apply {
+            text = "BYPASS MOD LINK"
+            textSize = 24f
+            setTextColor(Color.WHITE)
+            gravity = Gravity.CENTER
+            typeface = android.graphics.Typeface.create(
+                "sans-serif-rounded",
+                android.graphics.Typeface.BOLD
+            )
+            setShadowLayer(dp(4).toFloat(), 0f, 0f, Color.BLACK)
+            setPadding(dp(12), dp(12), dp(12), dp(12))
+            background = android.graphics.drawable.GradientDrawable().apply {
+                setColor(Color.BLACK)
+                setCornerRadius(dp(24).toFloat())
+                setStroke(dp(2), Color.WHITE)
+            }
+        }
+        val brandParams = LinearLayout.LayoutParams(-1, -2)
+        brandParams.topMargin = dp(14)
+        column.addView(brand, brandParams)
         val subtitle = TextView(this).apply {
             text = "SAFE LINK RESOLVER"
             textSize = 11f
@@ -74,7 +104,7 @@ class MainActivity : Activity() {
             text = "MASUKKAN LINK"
             textSize = 12f
             setTextColor(white)
-            typeface = android.graphics.Typeface.DEFAULT_BOLD
+            typeface = android.graphics.Typeface.create("sans-serif-black", android.graphics.Typeface.BOLD)
         }
         column.addView(label)
         urlInput = EditText(this).apply {
@@ -105,8 +135,8 @@ class MainActivity : Activity() {
         status = TextView(this).apply {
             text = "STATUS: SIAP"
             textSize = 12f
-            setTextColor(red)
-            typeface = android.graphics.Typeface.DEFAULT_BOLD
+            setTextColor(Color.BLACK)
+            typeface = android.graphics.Typeface.create("sans-serif-black", android.graphics.Typeface.BOLD)
         }
         column.addView(status)
         result = TextView(this).apply {
