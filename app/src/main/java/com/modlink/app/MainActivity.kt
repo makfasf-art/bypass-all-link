@@ -82,7 +82,7 @@ class MainActivity : Activity() {
             setHintTextColor(Color.GRAY)
             setTextColor(white)
             textSize = 14f
-            singleLine = true
+            setSingleLine(true)
             setPadding(dp(14), dp(12), dp(14), dp(12))
             setBackgroundColor(panel)
             inputType = android.text.InputType.TYPE_TEXT_VARIATION_URI
